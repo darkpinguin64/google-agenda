@@ -99,7 +99,7 @@ void displayVevents(vector<Vevent> vevents) {
       tft.fillRect(0, cursorY, 128, heightBox, ST7735_BLACK);
       // tft.drawRect(0, cursorY, 128, heightBox, ST7735_WHITE);
       // tft.drawRoundRect(5, cursorY + (heightBox-14)/2, 91, 14, 3, ST7735_WHITE);
-      if(enCours) tft.fillRect(6, cursorY + (heightBox-4)/2 + 4, 89, 4, ST7735_MAGENTA);
+      if(enCours) tft.fillRect(6, cursorY + (heightBox-4)/2 + 4, 89, 4, ST7735_RED);
       tft.drawRoundRect(5, cursorY + (heightBox-6)/2 + 4, 91, 6, 2, ST7735_WHITE);
       // tft.setTextColor(ST7735_WHITE, ST7735_BLACK);
       // tft.setCursor(7, cursorY + (heightBox - 7)/2);
@@ -109,6 +109,7 @@ void displayVevents(vector<Vevent> vevents) {
     if(asChange || !initVevents) {
       tft.setTextSize(2);
       tft.setCursor(101, cursorY + (heightBox-14)/2);
+      // tft.setTextColor(ST7735_WHITE, ST7735_BLACK);
       tft.setTextColor(enCours? ST7735_CYAN : ST7735_YELLOW, ST7735_BLACK);
       tft.printf("%02d", remainTimeDay);
       resetTxt();
@@ -118,7 +119,7 @@ void displayVevents(vector<Vevent> vevents) {
       if(enCours) {
         tft.fillRect(7, cursorY + (heightBox-2)/2 + 4, fill, 2, ST7735_WHITE);
       } else {
-        tft.fillRect(6, cursorY + (heightBox-4)/2 + 4, fill, 4, ST7735_MAGENTA);
+        tft.fillRect(6, cursorY + (heightBox-4)/2 + 4, fill, 4, ST7735_RED);
       }
       // if(fill < 4) tft.drawRoundRect(5, cursorY + (heightBox-14)/2, 91, 14, 3, ST7735_WHITE);
       

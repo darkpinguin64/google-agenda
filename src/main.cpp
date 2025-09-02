@@ -19,7 +19,7 @@ bool endCal = false;
 vector<Vevent> globalVevents;
 
 unsigned long last500 = 0;
-
+unsigned long last7200000 = 0;
 
 void setup() {
   Serial.begin(115200);
@@ -54,8 +54,15 @@ void loop() {
     // displayVevents(globalVevents);
     // delay(1000);
   }
+
+  // displayVevents(globalVevents);
   displayVevents(globalVevents);
+
+  if(millis() - last7200000 >= 7200000) {
+    last7200000 = millis();
+    updateCalendar(true);
+  }
   if(risingEdge()) {
-    updateCalendar();
+    updateCalendar(true);
   }
 }
